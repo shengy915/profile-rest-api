@@ -12,7 +12,7 @@ class HelloApiView(APIView):
         """returns list of APIView features"""
         an_apiview = [
             'uses HTTP methods as function (get, post, patch, put, delete)',
-            'is similat rp traditional django view',
+            'is similar to a traditional django view',
             'gives you most control over your application logic',
             'is mapped manually to urls',
         ]
@@ -31,11 +31,12 @@ class HelloApiView(APIView):
                 serializer.errors,
                 status.HTTP_400_BAD_REQUEST
                 )
-        
+    #pk = primary key = id of obj to update
+    #replaces obj
     def put(self, request, pk = None):
         """handle updating obj"""
         return Response({'method':'PUT'})
-    
+    #only update fields requested to be updated, not all fields
     def patch(self, request, pk = None):
         """Handle partial update of obj"""
         return Response({'method':'PATCH'})
